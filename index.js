@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 		...(v.type === "category" ? [] : [k])
 	]))
 
-	res.set("Content-Type", "text/plain").send(f(settings).filter(k => k !== "machine_start_gcode" && k !== "machine_end_gcode").map(k => `; ${k} = {${k}}`).join("\n"));
+	res.set("Content-Type", "text/plain").send(f(settings).sort().filter(k => k !== "machine_start_gcode" && k !== "machine_end_gcode").map(k => `; ${k} = {${k}}`).join("\n"));
 })
 
 server.use(router);

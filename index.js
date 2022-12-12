@@ -3,7 +3,7 @@ const request = require("request-promise-native");
 const server = express();
 const router = express.Router();
 
-const url = "https://github.com/Ultimaker/Cura/raw/master/resources/definitions/fdmprinter.def.json";
+const url = "https://github.com/Ultimaker/Cura/raw/main/resources/definitions/fdmprinter.def.json";
 
 router.get("/", async (req, res) => {
 	let { settings } = JSON.parse(await request(url));
